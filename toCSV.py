@@ -25,9 +25,10 @@ if file.readline()[0:2] == 'hi':
         csvfile.writerow(line)
         frame += 1
 else:
+    file.seek(last_pos)
     for line in file:
         line = line.partition('$')[0]
-        if line[0] != ' ':
+        if line[0] != 'h':
             time = line[0:8]
         else:
             prev = line[0]
@@ -40,9 +41,9 @@ else:
                     i = i + 1
                 if i + 1 == len(line):
                     break
-            line = str(frame) + ' ' + time + line
+            line = str(frame) + ' ' + time + ' ' + line
             line = line.replace(' ',',')
-            line = line.replace(',\n','')
+            line = line.replace('\n','')
             line.partition
             line = line.split(",")
             if line[14] == None:
