@@ -28,6 +28,11 @@ for row in reader:
 
 print(time)
 print(tsolar)
+print(px)
+print(mx)
+print(py)
+print(my)
+
 
 fig, ax1 = plt.subplots()
 ax1.set_xlabel('time (s)')
@@ -37,8 +42,9 @@ ax1.plot(time, py, '',label='+y')
 ax1.plot(time, mx, '',label='-x')
 ax1.plot(time, my,'',label='-y')
 ax1.plot(time, tsolar,'b--',label='total solar')
-ax1.set_ylim(-100,400)
+ax1.set_ylim(-100,500)
 
 ax1.legend()
+
 
 plt.savefig("data.png")

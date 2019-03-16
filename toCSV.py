@@ -27,27 +27,18 @@ if file.readline()[0:2] == 'hi':
 else:
     file.seek(last_pos)
     for line in file:
-        line = line.partition('$')[0]
-        if line[0] != 'h':
-            time = line[0:8]
+        print(line)
+        print(line.find(':'))
+        pos = line.find(':')
+        if(pos > 0):
+            time = line[(pos-2):(pos+6)]
+            print(time)
         else:
-            prev = line[0]
-            i = 0
-            for c in line:
-                if (c == line[i+1]) & (c == ' '):
-                    line = line[0:i] + line[i+1:]
-                else:
-                    prev = c
-                    i = i + 1
-                if i + 1 == len(line):
-                    break
+            line = line[line.find('hi'):]
             line = str(frame) + ' ' + time + ' ' + line
             line = line.replace(' ',',')
             line = line.replace('\n','')
-            line.partition
-            line = line.split(",")
-            if line[14] == None:
-                line = None
+            line = line.split(',')
             print(line)
             csvfile.writerow(line)
             frame = frame + 1
